@@ -7,7 +7,7 @@ Event-based architecture
 2. Show an animated border around the timer does gradually reduces proportional to the time.
 
 
-Pseudocode
+Pseudocode:
 
 -Wait for the input from user
     -Wait for user to click the start button
@@ -18,3 +18,20 @@ Pseudocode
     -Check if the timer reached 0
     -Notify the user and input box is available again
     -border should show 0 progression
+
+Challenges:
+
+-The architecture alters between timer and border instance everytime a validation occurs.
+
+Solution:
+
+-To have a whole block of code that is centralised on the function of timer. This code then triggers an event when timer 'starts', 'ticks' or 'done'.
+
+Class structure:
+
+class Timer
+    constructure(durationInput, startButton, pauseButton)
+        start()
+        pause()
+        onDurationChange() - used when input box is changed
+        tick() - used to update number and border etc
