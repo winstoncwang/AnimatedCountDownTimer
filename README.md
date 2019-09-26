@@ -35,3 +35,14 @@ class Timer
         pause()
         onDurationChange() - used when input box is changed
         tick() - used to update number and border etc
+
+
+
+----------------------------------------------------------------
+Version 0.11
+
+     Added buttons and tested out the Timer object
+----------------------------------------------------------------
+Version 0.12
+
+     link tick method to the start and pause method
