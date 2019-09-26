@@ -13,14 +13,29 @@ class Timer {
 		this.interval = setInterval(this.tick, 1000);
 	};
 
-	tick = () => {
-		console.log('tick');
-	};
-
 	pause = () => {
 		clearInterval(this.interval);
 		console.log('timer paused!!');
 	};
+
+	tick = () => {
+		//every second, update the input using DOM
+		//option1 grab the input value and update the input element. Disadvantage: to listen for any change in input, additional eventlistener
+		//option2 input element stores the value, timer retrieves data everytime
+		//option1 stores data in JS
+		//option2 stores data in DOM
+
+		const timeRemaining = this.timeRemaining;
+		this.timeRemaining = timeRemaining - 1;
+	};
+
+	get timeRemaining() {
+		return parseFloat(this.durationInput.value);
+	}
+
+	set timeRemaining(time) {
+		this.durationInput.value = time;
+	}
 }
 
 const durationInput = document.querySelector('#duration');
