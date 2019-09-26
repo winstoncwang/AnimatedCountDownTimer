@@ -46,3 +46,7 @@ Version 0.11
 Version 0.12
 
      link tick method to the start and pause method
+----------------------------------------------------------------
+Version 0.13
+
+     DOM value storage, getter and setter update
