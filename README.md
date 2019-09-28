@@ -50,3 +50,8 @@ Version 0.12
 Version 0.13
 
      DOM value storage, getter and setter update
+----------------------------------------------------------------
+Version 0.14
+
+     Prepare border callback functions aim to help communication
+     with graphics
