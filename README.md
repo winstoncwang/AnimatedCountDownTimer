@@ -55,3 +55,7 @@ Version 0.14
 
      Prepare border callback functions aim to help communication
      with graphics
+----------------------------------------------------------------
+Version 0.141
+
+     Extract timer class for cleaner code
