@@ -59,3 +59,9 @@ Version 0.14
 Version 0.141
 
      Extract timer class for cleaner code
+----------------------------------------------------------------
+Version 0.15
+
+     Added SVG for the circular border and use stroke-dasharray,
+     stroke-dashoffset for the animation. fill and stroke to
+     draw the circle.
