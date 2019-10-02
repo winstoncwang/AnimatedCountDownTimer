@@ -65,3 +65,8 @@ Version 0.15
      Added SVG for the circular border and use stroke-dasharray,
      stroke-dashoffset for the animation. fill and stroke to
      draw the circle.
+----------------------------------------------------------------
+Version 0.16
+
+     Fixed floating point error, moving border with a fixed off
+     set. Clockwise and correct opening direction.
