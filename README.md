@@ -70,3 +70,8 @@ Version 0.16
 
      Fixed floating point error, moving border with a fixed off
      set. Clockwise and correct opening direction.
+----------------------------------------------------------------
+Version 0.17
+
+     Increased timestep to smoothen the animation. Calculate the
+     correct stroke-dashoffset value.
