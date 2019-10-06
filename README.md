@@ -75,3 +75,7 @@ Version 0.17
 
      Increased timestep to smoothen the animation. Calculate the
      correct stroke-dashoffset value.
+----------------------------------------------------------------
+Version 0.18
+
+     Updated html format for better css layout
