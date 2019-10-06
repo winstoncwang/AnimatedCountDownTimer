@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="app.css">
     <title>CountDownTimer</title>
+    
 </head>
 <body>
+    <div id="timer">
+        <div id="controller">
+            <input id="duration" value="">
+            <div>
+                <button id="start"><i class="fas fa-play"></i></button>
+                <button id="pause"><i class="fas fa-pause"></i></button>
+                
+            </div>
+        </div>
+    
     <svg height="400" width="400">
         <circle 
-        r="190" 
-        cx="200" 
-        cy="200"
-        fill="transparent"
-        stroke="black"
-        stroke-width="15"
-        transform="rotate(-90 200 200)"
-        />
-    </svg>
-    <input id="duration" value="">
-    <button id="start">Start</button>
-    <button id="pause">Pause</button>
-    <script src="timer.js"></script>
-    <script src="app.js"></script>
+            r="190" 
+            cx="200" 
+            cy="200"
+            fill="transparent"
+            stroke="black"
+            stroke-width="15"
+            transform="rotate(-90 200 200)"
+            />
+    </svg> 
+</div>
+
+<script src="timer.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
