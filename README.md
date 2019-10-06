@@ -36,7 +36,8 @@ class Timer
         onDurationChange() - used when input box is changed
         tick() - used to update number and border etc
 
-
+Necessary Imporvement:
+     change functionality of pause and add a stop button.
 
 ----------------------------------------------------------------
 Version 0.11
