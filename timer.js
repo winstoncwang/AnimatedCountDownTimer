@@ -1,8 +1,9 @@
 class Timer {
-	constructor(durationInput, startButton, pauseButton, callbacks) {
+	constructor(durationInput, startButton, pauseButton, stopButton, callbacks) {
 		this.durationInput = durationInput;
 		this.startButton = startButton;
 		this.pauseButton = pauseButton;
+		this.stopButton = stopButton;
 		//this checks if callbacks are used
 		if (callbacks) {
 			this.onStart = callbacks.onStart;
@@ -12,6 +13,9 @@ class Timer {
 
 		this.startButton.addEventListener('click', this.start);
 		this.pauseButton.addEventListener('click', this.pause);
+		this.stopButton.addEventListener('click', this.stop);
+		this.durationInput.addEventListener('click', this.inputClick);
+		this.durationInput.addEventListener('keypress', this.enterStart);
 	}
 
 	start = () => {
@@ -24,6 +28,14 @@ class Timer {
 
 	pause = () => {
 		clearInterval(this.interval);
+	};
+
+	stop = () => {
+		this.pause();
+		this.timeRemaining = 0;
+		if (this.onComplete) {
+			this.onComplete();
+		}
 	};
 
 	tick = () => {
@@ -42,6 +54,17 @@ class Timer {
 			if (this.onTick) {
 				this.onTick(this.timeRemaining);
 			}
+		}
+	};
+
+	inputClick = () => {
+		this.pause();
+	};
+
+	enterStart = (e) => {
+		console.dir(e);
+		if (e.key === 'Enter') {
+			this.start();
 		}
 	};
 
