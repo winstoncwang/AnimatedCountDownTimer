@@ -37,7 +37,10 @@ class Timer
         tick() - used to update number and border etc
 
 Necessary Imporvement:
-     change functionality of pause and add a stop button.
+     Prevent border reset after pause and start
+     Enter to start
+     Inputclick to pause
+     Add stop button
 
 ----------------------------------------------------------------
 Version 0.11
@@ -84,3 +87,18 @@ Version 0.18
 Version 0.181
 
      CSS update
+----------------------------------------------------------------
+Version 0.201
+
+     Input box update
+----------------------------------------------------------------
+Version 0.21
+
+     New feature: 
+          Click inputbox to pause
+          Press enter to start
+     
+     Method change:
+          onComplete() resets border
+          stop() added
+          
