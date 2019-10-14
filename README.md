@@ -101,4 +101,16 @@ Version 0.21
      Method change:
           onComplete() resets border
           stop() added
+----------------------------------------------------------------
+Version 0.22
+
+     New feature: 
+          Lap timer
+     
+     Method change:
+          Start button enable/disable
+
+     Bug fix:
+          Multiple start button scenario
+          Multiple enter-start scenario
           
