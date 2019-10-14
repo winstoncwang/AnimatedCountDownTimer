@@ -19,20 +19,31 @@ class Timer {
 	}
 
 	start = () => {
+		this.writeFullDuration = true;
+		this.fullDuration = this.durationInput.value;
+		console.log(this.fullDuration);
+
 		if (this.onStart) {
 			this.onStart(this.timeRemaining);
 		}
 		this.tick();
+		this.startButton.disabled = 'true';
+		this.stopButton.disabled = '';
+		this.countDownOn = true;
 		this.interval = setInterval(this.tick, 50);
 	};
 
 	pause = () => {
 		clearInterval(this.interval);
+		this.startButton.disabled = '';
+		this.stopButton.disabled = 'true';
+		this.countDownOn = false;
 	};
 
 	stop = () => {
 		this.pause();
-		this.timeRemaining = 0;
+		this.durationInput.value = '0.00';
+		this.countDownOn = false;
 		if (this.onComplete) {
 			this.onComplete();
 		}
@@ -59,12 +70,14 @@ class Timer {
 
 	inputClick = () => {
 		this.pause();
+		this.durationInput.value = '';
 	};
 
 	enterStart = (e) => {
-		console.dir(e);
-		if (e.key === 'Enter') {
+		if (e.key === 'Enter' && this.countDownOn === false) {
 			this.start();
+		} else {
+			console.log('timer already running');
 		}
 	};
 

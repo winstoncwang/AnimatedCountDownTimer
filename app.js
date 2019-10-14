@@ -8,7 +8,7 @@ const perimeter = circle.getAttribute('r') * 2 * Math.PI;
 circle.setAttribute('stroke-dasharray', perimeter);
 
 let duration;
-
+let writeFullDuration = true;
 const timer = new Timer(durationInput, startButton, pauseButton, stopButton, {
 	onStart(totalDuration) {
 		duration = totalDuration;
@@ -18,6 +18,6 @@ const timer = new Timer(durationInput, startButton, pauseButton, stopButton, {
 	},
 	onComplete() {
 		console.log('Timer is completed');
-		circle.setAttribute('stroke-dashoffset', 0);
+		circle.setAttribute('stroke-dashoffset', perimeter);
 	}
 });
