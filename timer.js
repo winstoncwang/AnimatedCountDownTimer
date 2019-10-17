@@ -11,6 +11,7 @@ class Timer {
 			this.onComplete = callbacks.onComplete;
 		}
 
+		this.startButton.addEventListener('click', this.store);
 		this.startButton.addEventListener('click', this.start);
 		this.pauseButton.addEventListener('click', this.pause);
 		this.stopButton.addEventListener('click', this.stop);
@@ -18,13 +19,17 @@ class Timer {
 		this.durationInput.addEventListener('keypress', this.enterStart);
 	}
 
-	start = () => {
-		this.writeFullDuration = true;
-		this.fullDuration = this.durationInput.value;
-		console.log(this.fullDuration);
+	store = () => {
+		if (this.storeOn) {
+			this.fullDuration = this.timeRemaining;
+			console.log(this.fullDuration);
+			this.storeOn = false;
+		}
+	};
 
+	start = () => {
 		if (this.onStart) {
-			this.onStart(this.timeRemaining);
+			this.onStart(this.fullDuration);
 		}
 		this.tick();
 		this.startButton.disabled = 'true';
@@ -36,14 +41,17 @@ class Timer {
 	pause = () => {
 		clearInterval(this.interval);
 		this.startButton.disabled = '';
-		this.stopButton.disabled = 'true';
+		this.stopButton.disabled = '';
 		this.countDownOn = false;
+		this.storeOn = false;
 	};
 
 	stop = () => {
 		this.pause();
 		this.durationInput.value = '0.00';
 		this.countDownOn = false;
+		this.storeOn = true;
+		this.fullDuration = '';
 		if (this.onComplete) {
 			this.onComplete();
 		}
@@ -57,6 +65,8 @@ class Timer {
 		//option2 stores data in DOM
 		if (this.timeRemaining <= 0) {
 			this.pause();
+			this.storeOn = true;
+			this.fullDuration = '';
 			if (this.onComplete) {
 				this.onComplete();
 			}
@@ -70,6 +80,7 @@ class Timer {
 
 	inputClick = () => {
 		this.pause();
+		this.storeOn = true;
 		this.durationInput.value = '';
 	};
 
@@ -78,10 +89,12 @@ class Timer {
 			this.start();
 		} else {
 			console.log('timer already running');
+			this.fullDuration = parseFloat(this.durationInput.value);
 		}
 	};
 
 	get timeRemaining() {
+		//console.log(parseFloat(this.durationInput.value));
 		return parseFloat(this.durationInput.value);
 	}
 
