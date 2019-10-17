@@ -113,4 +113,10 @@ Version 0.22
      Bug fix:
           Multiple start button scenario
           Multiple enter-start scenario
+----------------------------------------------------------------
+Version 0.23
+
+     Bug fix:
+         Continue from pause without resetting border's
+         progression
           

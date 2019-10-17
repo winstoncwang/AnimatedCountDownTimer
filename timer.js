@@ -94,7 +94,6 @@ class Timer {
 	};
 
 	get timeRemaining() {
-		//console.log(parseFloat(this.durationInput.value));
 		return parseFloat(this.durationInput.value);
 	}
 
