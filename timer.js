@@ -1,9 +1,10 @@
 class Timer {
-	constructor(durationInput, startButton, pauseButton, stopButton, callbacks) {
+	constructor(durationInput, startButton, pauseButton, stopButton, lapButton, callbacks) {
 		this.durationInput = durationInput;
 		this.startButton = startButton;
 		this.pauseButton = pauseButton;
 		this.stopButton = stopButton;
+		this.lapButton = lapButton;
 		//this checks if callbacks are used
 		if (callbacks) {
 			this.onStart = callbacks.onStart;
@@ -15,6 +16,7 @@ class Timer {
 		this.startButton.addEventListener('click', this.start);
 		this.pauseButton.addEventListener('click', this.pause);
 		this.stopButton.addEventListener('click', this.stop);
+		this.lapButton.addEventListener('click', this.laptimeRecord);
 		this.durationInput.addEventListener('click', this.inputClick);
 		this.durationInput.addEventListener('keypress', this.enterStart);
 	}
@@ -32,8 +34,9 @@ class Timer {
 			this.onStart(this.fullDuration);
 		}
 		this.tick();
-		this.startButton.disabled = 'true';
+		this.startButton.disabled = 'true'; //enable/disable buttons
 		this.stopButton.disabled = '';
+		this.lapButton.disabled = '';
 		this.countDownOn = true;
 		this.interval = setInterval(this.tick, 50);
 	};
@@ -42,6 +45,7 @@ class Timer {
 		clearInterval(this.interval);
 		this.startButton.disabled = '';
 		this.stopButton.disabled = '';
+		this.lapButton.disabled = 'true';
 		this.countDownOn = false;
 		this.storeOn = false;
 	};
@@ -93,6 +97,15 @@ class Timer {
 		}
 	};
 
+	laptimeRecord = () => {
+		if (this.timeRemaining > 0) {
+			const parentUl = document.querySelector('#lapdiv ul');
+			const newLi = document.createElement('li');
+			newLi.innerText = `Laptime: ${this.timeRemaining}`;
+			parentUl.appendChild(newLi);
+			console.log(`Laptime: ${this.timeRemaining}`);
+		}
+	};
 	get timeRemaining() {
 		return parseFloat(this.durationInput.value);
 	}

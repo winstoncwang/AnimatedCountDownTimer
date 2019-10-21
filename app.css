@@ -34,6 +34,13 @@ button {
 #lap {
 	margin-top: 20px;
 }
+#lapdiv {
+	display: flex;
+	flex-direction: column;
+}
+li {
+	list-style-type: none;
+}
 
 body {
 	display: flex;
