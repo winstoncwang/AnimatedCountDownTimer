@@ -119,4 +119,16 @@ Version 0.23
      Bug fix:
          Continue from pause without resetting border's
          progression
+----------------------------------------------------------------
+Version 0.231
+
+     Laptime layout added
+----------------------------------------------------------------
+Version 0.24
+
+     New method:
+          laptimeRecord()
+
+     New feature:
+          Laptime records
           
